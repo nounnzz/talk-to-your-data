@@ -1,6 +1,6 @@
 # Talk to Your Data - Secure Per-User AI Q&A over Azure SQL
 
-Let external users ask an AI agent questions about **their own data** — and guarantee
+Let external users ask an AI agent questions about **their own data**, and guarantee
 each user only ever sees their own rows, enforced in the **database**, not the app or the
 AI agent. Works even when your users are **not in Microsoft Entra ID**.
 
@@ -12,7 +12,7 @@ per-user audit are hard requirements** (e.g. financial services, healthcare).
 
 Most Azure AI samples assume your users live in Entra ID. Many real apps don't — they use
 their own identity store (e.g. ASP.NET Identity). So: how do you carry a non-Entra user's
-identity all the way to the database, filter data per-user, and log it — **without trusting
+identity all the way to the database, filter data per-user, and log it **without trusting
 the AI agent** (which could be jailbroken or bypassed)?
 
 ## How it works (the airport-badge analogy)
