@@ -1,4 +1,4 @@
-# Talk to Your Data — Secure Per-User AI Q&A over Azure SQL
+# Talk to Your Data - Secure Per-User AI Q&A over Azure SQL
 
 Let external users ask an AI agent questions about **their own data** — and guarantee
 each user only ever sees their own rows, enforced in the **database**, not the app or the
