@@ -1,0 +1,16 @@
+# Secrets — NEVER commit these
+.env
+*.env
+**/dab-config.json
+*.secret
+appsettings.*.json
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+.vs/
+.vscode/
+
+# Build artifacts
+bin/
+obj/

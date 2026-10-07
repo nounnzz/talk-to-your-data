@@ -1,0 +1,38 @@
+{
+  "$schema": "https://github.com/Azure/data-api-builder/releases/latest/download/dab.draft.schema.json",
+
+  "//note": "No secrets here. The connection string is read from the DAB_CONNECTION_STRING environment variable. provider 'Custom' trusts tokens from YOUR OWN issuer (e.g. ASP.NET Identity) — no Entra required. set-session-context copies validated claims into SQL SESSION_CONTEXT, where Row-Level Security reads them.",
+
+  "data-source": {
+    "database-type": "mssql",
+    "connection-string": "@env('DAB_CONNECTION_STRING')",
+    "options": { "set-session-context": true }
+  },
+
+  "runtime": {
+    "rest":    { "enabled": true, "path": "/api" },
+    "graphql": { "enabled": true, "path": "/graphql" },
+    "host": {
+      "mode": "development",
+      "cors": { "origins": ["*"] },
+      "authentication": {
+        "provider": "Custom",
+        "jwt": {
+          "audience": "talk-to-your-data",
+          "issuer": "https://your-identity-issuer.example.com"
+        }
+      }
+    }
+  },
+
+  "entities": {
+    "Account": {
+      "source": { "object": "app.Accounts", "type": "table" },
+      "permissions": [ { "role": "authenticated", "actions": ["read"] } ]
+    },
+    "Balance": {
+      "source": { "object": "app.Balances", "type": "table" },
+      "permissions": [ { "role": "authenticated", "actions": ["read"] } ]
+    }
+  }
+}
